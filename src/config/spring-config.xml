@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+                    IoC配置
+        id:别名
+        class:全限定类名
+
+        id:起的别名(测试类中context.getBean("")要用到)
+        name:bean中的属性
+        value:name对应属性的值
+    -->
+    <bean id="elementary" class="com.yuri.spring.bean.Elementary">
+        <property name="name" value="SpringFramework"/>
+    </bean>
+
+    <bean id="pencil" class="com.yuri.spring.factory.PencilFactory" factory-method="getPencil"/>
+</beans>
