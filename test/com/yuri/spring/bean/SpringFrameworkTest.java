@@ -42,7 +42,7 @@ public class SpringFrameworkTest {
          * 1.加载spring配置文件,创建对象
          */
         ApplicationContext context = new ClassPathXmlApplicationContext("config/spring-config.xml");
-        Object pencil = context.getBean("pencil");
+        Pencil pencil = (Pencil) context.getBean("pencil");
         System.out.println(pencil);
     }
 

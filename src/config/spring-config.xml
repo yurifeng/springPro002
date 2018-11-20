@@ -5,16 +5,21 @@
 
     <!--
                     IoC配置
-        id:别名
-        class:全限定类名
-
         id:起的别名(测试类中context.getBean("")要用到)
+        class:id的实体全限定类名
+
         name:bean中的属性
         value:name对应属性的值
     -->
+
+    <!--1.无参构造创建实例-->
     <bean id="elementary" class="com.yuri.spring.bean.Elementary">
         <property name="name" value="SpringFramework"/>
     </bean>
 
+    <!--2.静态方法创建实例-->
     <bean id="pencil" class="com.yuri.spring.factory.PencilFactory" factory-method="getPencil"/>
+
+    <!--3.普通方法创建实例-->
+
 </beans>
