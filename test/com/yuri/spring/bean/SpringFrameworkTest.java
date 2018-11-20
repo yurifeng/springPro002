@@ -1,6 +1,7 @@
 package com.yuri.spring.bean;
 
 import com.yuri.spring.IoC.ElementaryService;
+import com.yuri.spring.annotation.Vehicle;
 import com.yuri.spring.property.KeyBoard;
 import com.yuri.spring.property.Person;
 import com.yuri.spring.property.School;
@@ -108,6 +109,17 @@ public class SpringFrameworkTest {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("config/spring-config.xml");
         Person person = (Person) applicationContext.getBean("person");
         person.personPrint();
+    }
+
+
+    /**
+     *  测试注解开发
+     */
+    @Test
+    public void testAnnotation(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("config/spring-annotation.xml");
+        Vehicle vehicle = (Vehicle) applicationContext.getBean("vehicle");
+        vehicle.startEngine();
     }
 
 
