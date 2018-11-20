@@ -11,15 +11,99 @@
         name:bean中的属性
         value:name对应属性的值
     -->
-
     <!--1.无参构造创建实例-->
-    <bean id="elementary" class="com.yuri.spring.bean.Elementary">
+    <bean id="elementary" class="com.yuri.spring.bean.Elementary" scope="prototype">
         <property name="name" value="SpringFramework"/>
     </bean>
 
+
     <!--2.静态方法创建实例-->
+    <!--
+        factory-method:静态工厂中的静态方法
+    -->
     <bean id="pencil" class="com.yuri.spring.factory.PencilFactory" factory-method="getPencil"/>
 
+
     <!--3.普通方法创建实例-->
+    <!--先创建工厂的对象-->
+    <bean id="phoneFactory" class="com.yuri.spring.factory.PhoneFactory"/>
+    <!--再创建实体的对象-->
+    <bean id="phone" factory-bean="phoneFactory" factory-method="getPhone"/>
+
+
+    <!--使用参数构造注入属性-->
+    <bean id="school" class="com.yuri.spring.property.School">
+        <!--构造注入-->
+        <constructor-arg name="schoolName" value="TishingHua"/>
+    </bean>
+
+
+    <!--使用set方法注入属性-->
+    <bean id="keyboard" class="com.yuri.spring.property.KeyBoard">
+        <!--set注入-->
+        <property name="keyname" value="Microsoft"></property>
+    </bean>
+
+
+    <!--注入对象类型的属性-->
+    <!--1.配置dao和service的对象-->
+    <bean id="elemenatryDao" class="com.yuri.spring.dao.ElemenatryDao"></bean>
+    <bean id="elementaryService" class="com.yuri.spring.IoC.ElementaryService">
+        <!--
+            注入dao对象
+            value:用于注入string类型
+            ref:用于注入引用的对象类型的id
+        -->
+        <property name="elemenatryDao" ref="elemenatryDao"></property>
+    </bean>
+
+
+    <!--注入复杂类型-->
+    <bean id="person" class="com.yuri.spring.property.Person">
+
+        <!--arrs-->
+        <property name="arrs">
+            <list>
+                <value>yuri</value>
+                <value>htt</value>
+                <value>jsd</value>
+                <value>cxt</value>
+                <value>hst</value>
+                <value>jst</value>
+            </list>
+        </property>
+
+        <!--list-->
+        <property name="list">
+            <list>
+                <value>Alice</value>
+                <value>Jeff</value>
+                <value>Tom</value>
+                <value>Micheal</value>
+                <value>Catalina</value>
+                <value>Bob</value>
+            </list>
+        </property>
+
+        <!--map-->
+        <property name="map">
+            <map>
+                <entry key="0x001" value="Jerry"></entry>
+                <entry key="0x002" value="Lucy"></entry>
+                <entry key="0x003" value="Mary"></entry>
+                <entry key="0x004" value="Cathy"></entry>
+            </map>
+        </property>
+
+        <!--properties-->
+        <property name="properties">
+            <props>
+                <prop key="driverClass">com.mysql.jdbc.Driver</prop>
+                <prop key="username">yty</prop>
+                <prop key="password">ytyy</prop>
+            </props>
+        </property>
+    </bean>
+
 
 </beans>

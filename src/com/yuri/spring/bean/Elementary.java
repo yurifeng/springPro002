@@ -17,11 +17,12 @@ public class Elementary {
         this.name = name;
     }
 
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public void hello() {
+    public void methodFunc() {
         System.out.println("hello" + "," + name);
     }
 }
