@@ -2,9 +2,11 @@ package com.yuri.spring.bean;
 
 import com.yuri.spring.IoC.ElementaryService;
 import com.yuri.spring.annotation.Vehicle;
+import com.yuri.spring.annotation_xml.BookService;
 import com.yuri.spring.property.KeyBoard;
 import com.yuri.spring.property.Person;
 import com.yuri.spring.property.School;
+import com.yuri.spring.service.VehicleService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -113,14 +115,34 @@ public class SpringFrameworkTest {
 
 
     /**
-     *  测试注解开发
+     * 测试注解开发
      */
     @Test
-    public void testAnnotation(){
+    public void testAnnotation() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("config/spring-annotation.xml");
         Vehicle vehicle = (Vehicle) applicationContext.getBean("vehicle");
         vehicle.startEngine();
     }
 
+    /**
+     * 测试注入属性注解
+     */
+    @Test
+    public void testServiceAnnotation() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("config/spring-annotation.xml");
+        VehicleService vehicleService = (VehicleService) applicationContext.getBean("vehicleService");
+        vehicleService.Catch();
+    }
+
+
+    /**
+     * 测试xml和annotation混合注入
+     */
+    @Test
+    public void testAnnotationAndXml(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("config/spring-annotation_xml.xml");
+        BookService bookService = (BookService) applicationContext.getBean("bookService");
+        bookService.BuyBook();
+    }
 
 }

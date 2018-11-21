@@ -1,8 +1,9 @@
 package com.yuri.spring.service;
 
 import com.yuri.spring.dao.VehicleDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @author yurifeng
@@ -11,15 +12,21 @@ import org.springframework.stereotype.Component;
  * @PROJECT_NAME springPro002
  */
 
-@Component(value = "vehicleService")
+@Service(value = "vehicleService")
 public class VehicleService {
 
+//    /**
+//     * 将VehicleDao成为VehicleService的属性
+//     *
+//     * @Autowired:自动将VehicleDao注入VehicleService中
+//     */
+//    @Autowired
+//    private VehicleDao vehicleDao;
+
     /**
-     * 将VehicleDao成为VehicleService的属性
-     *
-     * @Autowired:自动将VehicleDao注入VehicleService中
+     * @Resource:name的属性值写注解创建dao对象的value值
      */
-    @Autowired
+    @Resource(name = "vehicleDao")
     private VehicleDao vehicleDao;
 
     public void Catch() {
