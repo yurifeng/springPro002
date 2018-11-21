@@ -7,6 +7,7 @@
           <file>file://$MODULE_DIR$/src/config/spring-config.xml</file>
           <file>file://$MODULE_DIR$/src/config/spring-annotation.xml</file>
           <file>file://$MODULE_DIR$/src/config/spring-annotation_xml.xml</file>
+          <file>file://$MODULE_DIR$/src/config/spring-aop.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -30,6 +31,15 @@
         <SOURCES>
           <root url="jar://$USER_HOME$/.ideaLibSources/junit-4.12-sources.jar!/" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://E:/BaiduNetdiskDownload/Spring框架2016版资料(重要)/day02/资料/02-spring的aop/aspectjweaver-1.8.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
       </library>
     </orderEntry>
   </component>

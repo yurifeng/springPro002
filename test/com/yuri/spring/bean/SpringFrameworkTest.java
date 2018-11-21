@@ -3,6 +3,7 @@ package com.yuri.spring.bean;
 import com.yuri.spring.IoC.ElementaryService;
 import com.yuri.spring.annotation.Vehicle;
 import com.yuri.spring.annotation_xml.BookService;
+import com.yuri.spring.aop.HRManagement;
 import com.yuri.spring.property.KeyBoard;
 import com.yuri.spring.property.Person;
 import com.yuri.spring.property.School;
@@ -143,6 +144,16 @@ public class SpringFrameworkTest {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("config/spring-annotation_xml.xml");
         BookService bookService = (BookService) applicationContext.getBean("bookService");
         bookService.BuyBook();
+    }
+
+    /**
+     * 测试aspectjAOP
+     */
+    @Test
+    public void testAOP(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("config/spring-aop.xml");
+        HRManagement hrManagement = (HRManagement) applicationContext.getBean("hrManagement");
+        hrManagement.add();
     }
 
 }
