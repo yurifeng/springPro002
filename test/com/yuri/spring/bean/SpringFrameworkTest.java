@@ -140,7 +140,7 @@ public class SpringFrameworkTest {
      * 测试xml和annotation混合注入
      */
     @Test
-    public void testAnnotationAndXml(){
+    public void testAnnotationAndXml() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("config/spring-annotation_xml.xml");
         BookService bookService = (BookService) applicationContext.getBean("bookService");
         bookService.BuyBook();
@@ -150,7 +150,7 @@ public class SpringFrameworkTest {
      * 测试aspectjAOP
      */
     @Test
-    public void testAOP(){
+    public void testAOP() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("config/spring-aop.xml");
         HRManagement hrManagement = (HRManagement) applicationContext.getBean("hrManagement");
         hrManagement.add();
